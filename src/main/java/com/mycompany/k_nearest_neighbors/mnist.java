@@ -4,8 +4,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.List;
+
 
 
 public class mnist {
@@ -41,7 +40,7 @@ public class mnist {
         
         int[][] list = new int[numberImages][imageRows*imageColumns];
         addVectors(list,b, numberImages, imageRows*imageColumns);
-        //List<int[][]> list= new ArrayList<>(numberImages); 
+
         return list;
     }
     
@@ -51,7 +50,7 @@ public class mnist {
         int e = 0;
       
         
-        for(int i = 0; i<numMat-1; ++i){
+        for(int i = 0; i<numMat; ++i){
             beginning=i*rowCol+16;
             end=beginning+rowCol;
             
@@ -72,7 +71,11 @@ public class mnist {
            (b[1]<<16)&0x00ff0000|
            (b[2]<< 8)&0x0000ff00|
            (b[3]<< 0)&0x000000ff;
-       
+        
+        if (magicNumber!=2049){
+           System.out.print("Wrong File");   
+           System.exit(0);
+        }
         int numberLabels = (b[4]<<24)&0xff000000|
            (b[5]<<16)&0x00ff0000|
            (b[6]<< 8)&0x0000ff00|
