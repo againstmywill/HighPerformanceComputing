@@ -34,13 +34,12 @@ public class kNN {
         Thread t4= new Thread(d);
         
         t1.start();
-        t1.join();
-        
         t2.start();
-        t2.join();
         t3.start();
-        t3.join();
         t4.start();
+        t1.join();
+        t2.join();
+        t3.join();
         t4.join();
        
         /*
@@ -103,12 +102,12 @@ public class kNN {
     int knn;
     int begin;
     int end;
-    public distance(int[] guess,int[][] mnistTrainArray, int[][] mnistTestArray, int[] mnistTrainLabels,int k, int begin, int end){
+    public distance(int[] guess,int[][] mnistTrainArray, int[][] mnistTestArray, int[] mnistTrainLabels,int knn, int begin, int end){
          this.guess=guess;
          this.mnistTrainArray=mnistTrainArray;
          this.mnistTestArray=mnistTestArray;
          this.mnistTrainLabels=mnistTrainLabels;
-         this.knn=k;
+         this.knn=knn;
          this.begin=begin;
          this.end=end;
     }
@@ -119,9 +118,9 @@ public class kNN {
        
         for(int i=begin; i<end;++i){
             for(int j=0; j<mnistTrainArray.length; ++j){
-                dist=0;
+            
                 for(int k=0;k<mnistTrainArray[j].length;++k){
-                    distArr[j][0]=distArr[j][0]+Math.pow((mnistTrainArray[j][k]-mnistTestArray[i][k]),2);
+                    distArr[j][0]=distArr[j][0]+(mnistTrainArray[j][k]-mnistTestArray[i][k])*(mnistTrainArray[j][k]-mnistTestArray[i][k]);
                 }
                 distArr[j][1]=mnistTrainLabels[j];
                 distArr[j][0]=Math.sqrt(distArr[j][0]/mnistTrainArray[j].length);
