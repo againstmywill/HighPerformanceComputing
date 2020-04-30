@@ -18,7 +18,7 @@ public class kNN {
         int[] testLabels = mnist.mnistLabelReader("data/t10k-labels.idx1-ubyte");
         double accuracy=0;
 
-        int k=9;
+        int k=13;
        
        
         int[] guess = new int[testImages.length];
