@@ -87,4 +87,12 @@ public class mnist {
         
         return list;
     }
+    
+    public static void printImage(int[] a){
+        for(int i=0;i<28*28;i++){
+            if(i%28==0)System.out.print("\n");
+            if(a[i]>0)System.out.print("X");
+            else System.out.print(0);
+        }
+    }
 }

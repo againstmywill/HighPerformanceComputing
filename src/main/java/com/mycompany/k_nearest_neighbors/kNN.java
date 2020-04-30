@@ -60,15 +60,17 @@ public class kNN {
             Arrays.sort(distance, Comparator.comparingDouble(o -> o[0]));
             guess[i]=neighbors(distance,k);
         }
-       //see how accurate the knn is
+        //see how accurate the knn is
         */
         for(int i = 0; i<testLabels.length;i++) if(guess[i]==testLabels[i]) accuracy=accuracy+1; 
         
         accuracy=accuracy/testLabels.length*100;
         System.out.print(accuracy);
-       long endTime = System.nanoTime();
-       System.out.println("Took "+(endTime - startTime) + " ns"); 
-      
+        long endTime = System.nanoTime();
+        System.out.println("Took "+(endTime - startTime) + " ns"); 
+        int[] f = testImages[5];
+        mnist.printImage(f);
+        System.out.print("\n"+guess[5]);
     }
     
     // since the digits are 0-9 set up the indexs to match the digits
