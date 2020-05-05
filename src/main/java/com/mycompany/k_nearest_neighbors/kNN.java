@@ -57,6 +57,7 @@ public class kNN {
             int[]valTestLabels=vObj.arrLabels;
             
             while(k<30){
+                accuracy=0;
                 predictions = new int[valTestImages.length];
             
                 for(int i=0;i<4;i++){
@@ -98,7 +99,7 @@ public class kNN {
 }
 
  class Task implements Runnable{
-    double[][] distArr = new double[60000][2];
+    double[][] distArr;
     int[] guess;
     int[][] mnistTrainArray;
     int[][] mnistTestArray;
@@ -114,6 +115,7 @@ public class kNN {
          this.knn=knn;
          this.begin=begin;
          this.end=end;
+         this.distArr=new double[(mnistTrainArray.length)][2];
     }
     
     @Override
