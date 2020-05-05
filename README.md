@@ -49,3 +49,5 @@ changing k in the public static void main in the knn.java file will change the n
 
 changing the testing boolean to true in the same file will switch it to validation testing, the validation testing will split the training array into two arrays and will use 10000 of these randomly selected training data as the test data and other 50,000 as the training data,
 remeber to change k to the value you want to start with and the 30 in the while loop, while(k<30), to what you want the program to end at.
+
+it output the prediction's accuracy to the console
