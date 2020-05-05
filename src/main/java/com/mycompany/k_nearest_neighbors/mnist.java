@@ -40,7 +40,7 @@ public class mnist {
         
         int[][] list = new int[numberImages][imageRows*imageColumns];
         addVectors(list,b, numberImages, imageRows*imageColumns);
-
+        
         return list;
     }
     
@@ -49,7 +49,6 @@ public class mnist {
         int end;
         int e = 0;
       
-        
         for(int i = 0; i<numMat; ++i){
             beginning=i*rowCol+16;
             end=beginning+rowCol;
@@ -60,7 +59,6 @@ public class mnist {
             }
             e=0;
         }
-
     }
     
     public static int[] mnistLabelReader(String s) throws IOException{
