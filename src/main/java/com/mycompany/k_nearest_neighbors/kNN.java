@@ -48,6 +48,7 @@ public class kNN {
         System.out.print(accuracy);
         
         }else{
+            
             Validator vObj= new Validator(trainingImages,trainingLabels);
         
             int[][] valTrainingImages=vObj.listImages;
@@ -55,20 +56,22 @@ public class kNN {
             int [][] valTestImages=vObj.arrImages;
             int[]valTestLabels=vObj.arrLabels;
             
-            predictions = new int[valTestImages.length];
+            while(k<30){
+                predictions = new int[valTestImages.length];
+            
+                for(int i=0;i<4;i++){
+                    Task task = new Task(predictions, valTrainingImages, valTestImages, valTrainingLabels, k, i*2500,(i+1)*2500);
+                    workers[i]=new Thread(task);
+                    workers[i].start();
+                }
+                for(int i=0;i<4;i++){
+                    workers[i].join();
+                }
+                for(int i = 0; i<valTestLabels.length;i++) if(predictions[i]==valTestLabels[i]) accuracy=accuracy+1; 
         
-            for(int i=0;i<4;i++){
-                Task task = new Task(predictions, valTrainingImages, valTestImages, valTrainingLabels, k, i*2500,(i+1)*2500);
-                workers[i]=new Thread(task);
-                workers[i].start();
-            }
-            for(int i=0;i<4;i++){
-                workers[i].join();
-            }
-            for(int i = 0; i<valTestLabels.length;i++) if(predictions[i]==valTestLabels[i]) accuracy=accuracy+1; 
-        
-            accuracy=accuracy/valTestLabels.length*100;
-            System.out.print(accuracy);
+                accuracy=accuracy/valTestLabels.length*100;
+                System.out.print(accuracy);
+                }
         }
     }
     
