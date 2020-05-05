@@ -8,3 +8,4 @@ WHAT IS K NEAREST NEIGHBORS
 
 K Nearest Neighbors is a simple algorithm where the test data is compared to all training data points by using one of the methods to find distance between it and the rest of the data, takes the K nearest data points and then classifies the test data according to whatever the majority that its nearest neighbors are.
 
+![](images/knn1.png)
