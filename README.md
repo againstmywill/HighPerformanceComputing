@@ -44,10 +44,13 @@ Each of these images in the dataset are 28 by 28 and are gray scale. This means 
 
 The highest performance of KNN is around 97%. We reached 97% in accuracy vs the test images and consistently had 97-98 percent on the validation tests.
 
-To use the program, just download it the paths are already set to the data folder provided to it and run it,
+
+How to use
+
+To use the program, just download it, the paths for mnist class are already set to the data folder provided  and run it,
 changing k in the public static void main in the knn.java file will change the number of neighbors it will be compared to
 
 changing the testing boolean to true in the same file will switch it to validation testing, the validation testing will split the training array into two arrays and will use 10000 of these randomly selected training data as the test data and other 50,000 as the training data,
-remeber to change k to the value you want to start with and the 30 in the while loop, while(k<30), to what you want the program to end at.
+remeber to change k to the value you want to start with and the 30 in the while loop, while(k<30), to what you want the program to end at for validation testing.
 
-it output the prediction's accuracy to the console
+it will output the prediction's accuracy to the console
