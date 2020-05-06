@@ -72,6 +72,7 @@ public class kNN {
         
                 accuracy=accuracy/valTestLabels.length*100;
                 System.out.print(accuracy);
+                k++;
                 }
         }
     }
